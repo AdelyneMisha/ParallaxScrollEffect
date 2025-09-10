@@ -1,0 +1,68 @@
+/* Keyframes for the animation */
+@keyframes moveStar {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    100% {
+        transform: translateY(-300px); /* Move 300px up */
+    }
+}
+
+/* Keyframes for reverse animation */
+@keyframes moveStarReverse {
+    0% {
+        transform: translateY(-300px); /* Start from where the star was moved */
+    }
+    100% {
+        transform: translateY(0); /* Move back to original position */
+    }
+}
+
+/* Body style */
+body {
+    background: linear-gradient(to bottom, #0A1045 , #1928AB );
+    margin: 0;
+    height: 105vh; /* Allow scrolling */
+    transition: background 0.5s linear;
+}
+
+/* Moon Styling */
+.moon {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.moon img {
+    height: 1000px;
+    width: 1000px;
+}
+
+/* General styling for all stars  */
+.star1, .star2, .star3, .star4, .star5, .star6, .star7, .star8 {
+    position: absolute;
+}
+
+/* Custom position and size for each star */
+.star1 { top: 10%; left: 25%; height: 25px; width: 35px; }
+.star2 { top: 20%; left: 90%; height: 35px; width: 25px; }
+.star3 { top: 80%; left: 10%; height: 100px; width: 75px; }
+.star4 { top: 30%; left: 70%; height: 100px; width: 75px; }
+.star5 { top: 70%; left: 30%; height: 85px; width: 65px; }
+.star6 { top: 60%; left: 60%; height: 115px; width: 90px; }
+.star7 { top: 70%; left: 90%; height: 105px; width: 80px; }
+.star8 { top: 30%; left: 7%; height: 30px; width: 30px; }
+
+/* Add animation for when stars are animated */
+.star1.animated, .star2.animated, .star3.animated, .star4.animated, .star5.animated, 
+.star6.animated, .star7.animated, .star8.animated {
+    opacity: 1; /* Make visible */
+    animation: moveStar 1s linear forwards; /* Trigger upward animation */
+}
+
+/* Reverse animation when scrolling up */
+.star1.reverse, .star2.reverse, .star3.reverse, .star4.reverse, .star5.reverse,
+.star6.reverse, .star7.reverse, .star8.reverse {
+    animation: moveStarReverse 1s linear forwards; /* Trigger downward animation */
+}
